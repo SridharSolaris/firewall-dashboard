@@ -53,41 +53,41 @@ const Settings = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-4xl">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">Settings</h1>
+    <div className="container mx-auto p-8 max-w-5xl bg-gray-50 rounded-xl shadow-lg">
+      <h1 className="text-4xl font-semibold text-center mb-8 text-gray-900">Settings</h1>
 
       {/* User Account Details */}
-      <section className="bg-white p-6 rounded-lg shadow-md mb-8 border border-gray-200">
+      <section className="bg-white p-8 rounded-lg shadow-xl mb-8 border-l-4 border-blue-500">
         <h2 className="text-3xl font-semibold mb-4 text-gray-800">User Account</h2>
         <p className="text-lg text-gray-700 mb-2 truncate">
-          <strong>Username:</strong> {userDetails.username}
+          <strong className="text-gray-900">Username:</strong> {userDetails.username}
         </p>
         <p className="text-lg text-gray-700 truncate">
-          <strong>Email:</strong> {userDetails.email}
+          <strong className="text-gray-900">Email:</strong> {userDetails.email}
         </p>
       </section>
 
       {/* API Section */}
-      <section className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-        <h2 className="text-3xl font-semibold mb-4 text-gray-800">API</h2>
+      <section className="bg-white p-8 rounded-lg shadow-xl border-l-4 border-green-500">
+        <h2 className="text-3xl font-semibold mb-4 text-gray-800">API Management</h2>
         <div>
           <h3 className="text-2xl font-semibold mb-4 text-gray-700">Your Applications</h3>
           {apps.length > 0 ? (
             apps.map((app) => (
               <div
                 key={app._id}
-                className="bg-gray-50 p-6 rounded-lg shadow-md mb-6 border border-gray-100"
+                className="bg-gray-50 p-6 rounded-lg shadow-md mb-6 border-l-4 border-indigo-500"
               >
                 <h4 className="text-xl font-semibold text-gray-800 mb-4 truncate">{app.appName}</h4>
 
                 {/* Display the existing API Key */}
                 <div className="mb-4">
                   <p className="text-lg text-gray-700 truncate">
-                    <strong>API Key:</strong> {app.apiKey}
+                    <strong className="text-gray-900">API Key:</strong> {app.apiKey}
                   </p>
                   <button
                     onClick={() => handleCopyApiKey(app.apiKey)}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-blue-700 transition"
+                    className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-blue-700 transition duration-300 ease-in-out"
                   >
                     Copy API Key
                   </button>
@@ -96,11 +96,11 @@ const Settings = () => {
                 {/* Display the App ID */}
                 <div className="mb-4">
                   <p className="text-lg text-gray-700 truncate">
-                    <strong>App ID:</strong> {app._id}
+                    <strong className="text-gray-900">App ID:</strong> {app._id}
                   </p>
                   <button
                     onClick={() => handleCopyAppId(app._id)}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-blue-700 transition"
+                    className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-blue-700 transition duration-300 ease-in-out"
                   >
                     Copy App ID
                   </button>
@@ -109,7 +109,7 @@ const Settings = () => {
                 {/* Button to generate a new API key */}
                 <button
                   onClick={() => handleGenerateApiKey(app._id)}
-                  className="bg-green-600 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-700 transition"
+                  className="bg-green-600 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-700 transition duration-300 ease-in-out"
                 >
                   Generate New API Key
                 </button>
@@ -118,11 +118,11 @@ const Settings = () => {
                 {selectedAppId === app._id && apiKey && (
                   <div className="mt-4">
                     <p className="text-lg text-gray-700 truncate">
-                      <strong>Your New API Key:</strong> {apiKey}
+                      <strong className="text-gray-900">Your New API Key:</strong> {apiKey}
                     </p>
                     <button
                       onClick={() => handleCopyApiKey(apiKey)}
-                      className="bg-green-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-green-700 transition"
+                      className="bg-green-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-green-700 transition duration-300 ease-in-out"
                     >
                       Copy New API Key
                     </button>
