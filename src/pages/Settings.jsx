@@ -59,10 +59,10 @@ const Settings = () => {
       {/* User Account Details */}
       <section className="bg-white p-6 rounded-lg shadow-md mb-8 border border-gray-200">
         <h2 className="text-3xl font-semibold mb-4 text-gray-800">User Account</h2>
-        <p className="text-lg text-gray-700 mb-2">
+        <p className="text-lg text-gray-700 mb-2 truncate">
           <strong>Username:</strong> {userDetails.username}
         </p>
-        <p className="text-lg text-gray-700">
+        <p className="text-lg text-gray-700 truncate">
           <strong>Email:</strong> {userDetails.email}
         </p>
       </section>
@@ -78,11 +78,11 @@ const Settings = () => {
                 key={app._id}
                 className="bg-gray-50 p-6 rounded-lg shadow-md mb-6 border border-gray-100"
               >
-                <h4 className="text-xl font-semibold text-gray-800 mb-4">{app.appName}</h4>
+                <h4 className="text-xl font-semibold text-gray-800 mb-4 truncate">{app.appName}</h4>
 
                 {/* Display the existing API Key */}
                 <div className="mb-4">
-                  <p className="text-lg text-gray-700">
+                  <p className="text-lg text-gray-700 truncate">
                     <strong>API Key:</strong> {app.apiKey}
                   </p>
                   <button
@@ -95,7 +95,7 @@ const Settings = () => {
 
                 {/* Display the App ID */}
                 <div className="mb-4">
-                  <p className="text-lg text-gray-700">
+                  <p className="text-lg text-gray-700 truncate">
                     <strong>App ID:</strong> {app._id}
                   </p>
                   <button
@@ -117,7 +117,7 @@ const Settings = () => {
                 {/* Display the newly generated API Key */}
                 {selectedAppId === app._id && apiKey && (
                   <div className="mt-4">
-                    <p className="text-lg text-gray-700">
+                    <p className="text-lg text-gray-700 truncate">
                       <strong>Your New API Key:</strong> {apiKey}
                     </p>
                     <button
