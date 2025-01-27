@@ -1,36 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";  // Correct import
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+  const { isLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the token exists in localStorage
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); // Set login status based on token presence
-  }, []);
+    // Close the menu after login to reflect updated state
+    if (isLoggedIn) {
+      setIsMenuOpen(false); // Close the menu when logged in
+    }
+  }, [isLoggedIn]);
 
   const handleLogout = () => {
-    // Clear user session from localStorage
-    localStorage.removeItem("token");
-    setIsLoggedIn(false); // Update login status
+    logout();
     navigate("/login");
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev); // Toggle menu visibility
+    setIsMenuOpen((prev) => !prev);
   };
 
   const closeMenu = () => {
-    setIsMenuOpen(false); // Close menu after clicking a link
+    setIsMenuOpen(false);
   };
 
   return (
     <nav className="bg-white shadow-md p-4 w-full">
       <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
         <h1 className="text-xl font-semibold text-gray-800">Firewall Dashboard</h1>
 
         {/* Hamburger Menu Button (Visible on Mobile) */}
@@ -71,7 +71,6 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          {/* Always visible */}
           <li>
             <Link
               to="/sdk-setup"
@@ -123,7 +122,6 @@ const Navbar = () => {
                   Settings
                 </Link>
               </li>
-              {/* Log Out Button */}
               <li>
                 <button
                   onClick={handleLogout}

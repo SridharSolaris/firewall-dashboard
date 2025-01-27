@@ -20,6 +20,7 @@ const Login = () => {
       const data = await login({ email, password });
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
+      location.reload()
     } catch (error) {
       setError("Invalid credentials. Please try again.");
     } finally {
