@@ -27,6 +27,9 @@ const Navbar = () => {
           <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
+          <Link to="/sdk-setup">SDK Integration</Link>
+        </li>
+        <li>
           <Link to="/settings">Settings</Link>
         </li>
       </ul>
