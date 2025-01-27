@@ -46,7 +46,6 @@ import { setConfig, ProtectedPage } from "firewallb-sdk";
 
 // Set the configuration for the firewall
 setConfig({
-  FIREWALL_API_URL: process.env.REACT_APP_FIREWALL_API_URL,
   API_KEY: process.env.REACT_APP_FIREWALL_API_KEY,
   APP_ID: process.env.REACT_APP_FIREWALL_APP_ID,
 });
@@ -67,11 +66,11 @@ export default App;
         </pre>
         <p className="mt-4 text-lg text-gray-600">
           Ensure you have set the following environment variables in your `.env`
-          file:
+          file. (You can find your API KEY and APP ID in our settings page of
+          our dashboard) :
         </p>
         <pre className="bg-gray-100 p-4 mt-2 text-lg text-gray-700">
           {`
-REACT_APP_FIREWALL_API_URL="https://your-firewall-api-url"
 REACT_APP_FIREWALL_API_KEY="your-api-key"
 REACT_APP_FIREWALL_APP_ID="your-app-id"
           `}
