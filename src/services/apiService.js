@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://firewall-backend.onrender.com"; // Backend API URL
+const API_BASE_URL = process.env.REACT_APP_FIREWALL_API; // Backend API URL
 
 // Helper to set Authorization headers
 const getAuthHeaders = (token) => ({
